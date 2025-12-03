@@ -36,32 +36,14 @@ class LandingPageGenerator:
         }
     
     def _create_html_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        return f"""Create RICH, BEAUTIFUL landing: {theme}
-Language: {language} | CTA: {target_action}
+        return f"""Create stunning landing page: {theme}
+ALL TEXT in {language} | CTA: {target_action}
 
-12 SECTIONS (detailed content):
-1. HEADER: Fixed glassmorphism, logo, nav links, {target_action} btn
-2. HERO: Gradient+image overlay, H1, value prop, 4 stat counters, CTAs, social proof
-3. TRUST: 3 badges+images, descriptions, disclaimer
-4. PROBLEMS: 4 cards+images, solutions with 5 bullets each
-5. TESTIMONIALS: 6 cards+avatars (https://i.pravatar.cc/150?img=1-6), quotes, ratings, counters
-6. FEATURES: 6 cards+images, detailed descriptions, 5 bullets each
-7. HOW IT WORKS: 4 steps with images, timeline
-8. STATS: 6 metrics with animated numbers
-9. FAQ: 6 questions with detailed answers, accordion
-10. PRICING: 3 tiers, 8 features each, guarantee
-11. FINAL CTA: Image+form
-12. FOOTER: 4 columns, contact, links, legal
+Sections: Header, Hero(stats+images), Trust(3), Problems(4), Testimonials(6 with https://i.pravatar.cc/150?img=1-6), Features(6 detailed), How-it-works(4), Stats(6), FAQ(6), Pricing(3), CTA-Form, Footer(complete contact)
 
-VISUALS (critical):
-- Images: Unsplash (https://images.unsplash.com/photo-id?w=800), avatars (pravatar.cc)
-- Gradients: 3-color linear/radial everywhere
-- Shadows: 0 10px 30px rgba, layered
-- Hover: translateY(-8px) scale(1.03), brightness(1.1)
-- Animations: float, pulse, fadeIn, slideUp
-- Colors: Bold, vibrant (NO boring)
+Visuals: Unsplash images everywhere, rich gradients, deep shadows, hover effects(scale+translateY), smooth animations, bold colors
 
-Content: Specific, detailed (2-3 sentences), realistic numbers. ALL in {language}. HTML only."""
+Content: Detailed, specific, realistic. HTML only."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """Generate realistic contact information"""
