@@ -44,14 +44,16 @@ class LandingPageGenerator:
         }
     
     def _create_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        return f"""You are a world-class web designer creating an Awwwards-level landing page. Generate a complete, production-ready HTML landing page that looks like it was created by a professional design agency.
+        return f"""You are an elite web designer creating a world-class Awwwards-level landing page. Generate a complete, production-ready HTML landing page with RICH content, professional visuals, and conversion-focused design.
 
 THEME: {theme}
 LANGUAGE: {language}
 TRAFFIC SOURCE: {traffic_source}
 TARGET ACTION: {target_action}
 
-CRITICAL DESIGN REQUIREMENTS (AWWWARDS LEVEL):
+CRITICAL: This must be a COMPLETE, CONTENT-RICH landing page with ALL sections fully populated with detailed, specific content. NOT just placeholder text!
+
+MANDATORY STRUCTURE (COMPLETE ALL SECTIONS):
 
 1. VISUAL DESIGN (Premium Quality):
    - Modern, sophisticated color palette (NO purple/blue or purple/pink gradients)
