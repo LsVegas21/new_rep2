@@ -211,6 +211,13 @@ const Home = () => {
                   </>
                 )}
               </Button>
+
+              {/* Error Display */}
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  {error}
+                </div>
+              )}
             </div>
           </div>
 
