@@ -283,7 +283,7 @@ GOOGLE ADS COMPLIANCE:
 
 Generate a COMPLETE, CONTENT-RICH landing page. Every section must have real, detailed content. NOT placeholder text. This should look like a $20,000+ agency-created page with RICH content, professional design, and high conversion potential.
 
-OUTPUT: Pure HTML only, starting with <!DOCTYPE html>. No explanations, no markdown blocks.
+OUTPUT: Pure HTML only, starting with <!DOCTYPE html>. No explanations, no markdown blocks."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """
