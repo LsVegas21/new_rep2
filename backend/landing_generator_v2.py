@@ -73,4 +73,79 @@ TECHNICAL:
 - Accessibility features
 - Fast loading optimized
 
-Output ONLY the HTML code, starting with <!DOCTYPE html>. No explanations, no markdown.
+Output ONLY the HTML code, starting with <!DOCTYPE html>. No explanations, no markdown."""
+        return prompt
+    
+    async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
+        """Generate realistic contact information"""
+        prompt = f"""Generate REALISTIC professional contact info for: {theme}
+
+CRITICAL: Make this 100% real-looking - NOT placeholder!
+
+Requirements:
+- Company name: Professional, memorable
+- Email: Format like contact@companyname.com
+- Phone: Proper international format (+country xxx xxx xxxx)
+- Address: COMPLETE with street, suite/office, city, postal code, country
+
+Language: {language} (use appropriate country format)
+
+Provide in EXACT format:
+Company: [name]
+Email: [professional@domain.com]
+Phone: [+X XXX XXX XXXX]
+Address: [Full Address with Postal Code]
+
+Make it completely real and professional."""
+        
+        msg = UserMessage(text=prompt)
+        response = await chat.send_message(msg)
+        return self._parse_metadata(response)
+    
+    def _parse_metadata(self, response: str) -> dict:
+        """Parse metadata from AI response"""
+        lines = response.strip().split('\n')
+        metadata = {
+            "company_name": "",
+            "email": "",
+            "phone": "",
+            "address": ""
+        }
+        
+        for line in lines:
+            if ':' in line:
+                key, value = line.split(':', 1)
+                key = key.strip().lower()
+                value = value.strip()
+                
+                if 'company' in key:
+                    metadata['company_name'] = value
+                elif 'email' in key:
+                    metadata['email'] = value
+                elif 'phone' in key:
+                    metadata['phone'] = value
+                elif 'address' in key:
+                    metadata['address'] = value
+        
+        return metadata
+    
+    def _clean_html_response(self, html: str) -> str:
+        """Clean HTML response from AI"""
+        html = html.strip()
+        
+        # Remove markdown code blocks
+        if html.startswith('```html'):
+            html = html[7:]
+        elif html.startswith('```'):
+            html = html[3:]
+        
+        if html.endswith('```'):
+            html = html[:-3]
+        
+        html = html.strip()
+        
+        # Ensure it starts with DOCTYPE
+        if not html.upper().startswith('<!DOCTYPE'):
+            html = '<!DOCTYPE html>\n' + html
+        
+        return html
