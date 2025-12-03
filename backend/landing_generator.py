@@ -55,122 +55,235 @@ CRITICAL: This must be a COMPLETE, CONTENT-RICH landing page with ALL sections f
 
 MANDATORY STRUCTURE (COMPLETE ALL SECTIONS):
 
-1. VISUAL DESIGN (Premium Quality):
-   - Modern, sophisticated color palette (NO purple/blue or purple/pink gradients)
-   - Rich, professional colors with proper contrast
-   - Subtle gradients and depth effects
-   - Glass-morphism effects with backdrop-filter: blur(12px)
-   - Smooth shadows: box-shadow with multiple layers
-   - White space as a luxury element (generous padding/margins)
+1. HEADER (Fixed, Glassmorphism):
+   - Logo with animation
+   - Navigation menu with smooth scroll links
+   - Live indicator or badge
+   - Primary CTA button: {target_action}
+   - Hamburger menu for mobile
+
+2. HERO SECTION (Full viewport height, Rich visuals):
+   - Kinematic/animated background with gradients
+   - Decorative floating elements
+   - POWERFUL headline (not generic, benefit-driven)
+   - Compelling subheadline (explain clear value)
+   - Live stats section with ANIMATED NUMBERS:
+     * Show 3-4 key metrics (users, success rate, etc.)
+     * Numbers that count up on page load
+   - Dual CTAs: Primary button ({target_action}) + Secondary link
+   - Geo-targeted social proof ("María from [City]...")
+   - Visual elements on side (icons, illustrations)
+   - Scroll indicator
+
+3. COMPLIANCE/TRUST SECTION:
+   - 3 trust badges/claims with icons
+   - Detailed disclaimer with legal information
+   - Links to privacy policy and terms
+   - Build legitimacy and trust
+
+4. PROBLEM/SOLUTION SECTION:
+   - Identify 3 specific pain points users face
+   - Present clear solutions for each
+   - Use cards with distinct visual styling
+   - Include comparison tool: "Traditional approach" vs "Our solution"
+
+5. SOCIAL PROOF/TESTIMONIALS:
+   - 3+ testimonials with:
+     * Avatar/initial
+     * Realistic name
+     * Location and credibility marker
+     * Professional quote (specific results)
+     * Star rating (★★★★★)
+   - LIVE COUNTERS section:
+     * Active users count
+     * Cities/locations served
+     * Success stories
+     * Years of experience
+   - Decorative patterns between elements
+
+6. FEATURES/MODULES SECTION (Content-rich):
+   - 3-6 detailed feature cards with:
+     * Icon/emoji
+     * Feature title
+     * Detailed description (2-3 sentences)
+     * Bullet points of benefits (3-5 per feature)
+   - Grid layout with hover effects
+   - Interactive elements (simulated map, tabs, etc.)
+
+7. PRICING/VALUE SECTION:
+   - Clear pricing information
+   - What's included
+   - Comparison with alternatives
+   - Money-back guarantee or risk reversal
+
+8. FINAL CTA SECTION (Lead Generation Form):
+   - Multi-step progress indicator
+   - Professional form fields:
+     * Name
+     * Email
+     * Location (city/country dropdown)
+     * Experience level or relevant selector
+   - GDPR consent checkbox
+   - Clear offer details above form
+   - Prominent submit button: {target_action}
+   - Trust indicators near form
+
+9. FOOTER (COMPLETE & RICH):
+   - Brand section:
+     * Logo
+     * Company tagline/description
+   - Site navigation:
+     * Links to key pages
+     * Feature pages
+   - Contact information (REALISTIC):
+     * Email: professional@domain.com
+     * Phone: +X XXX XXX XXXX (proper format)
+     * Full address with postal code
+     * Business hours
+   - Legal section:
+     * Privacy Policy
+     * Terms of Service
+     * Cookie Policy
+     * Copyright with year
+     * Tax ID or business registration
+   - Social media links
+   - Additional footer CTA
+   - Regulatory badges/certifications
+
+10. MODALS (Hidden by default):
+   - Privacy Policy modal (with actual policy text)
+   - Terms of Service modal
+   - Special offer/promotion modal
+
+DESIGN PATTERNS & VISUAL ELEMENTS:
+
+1. COLOR PALETTE (Contextual):
+   - Choose colors based on {theme}:
+     * Education/Tech: Deep blues, teals, slate
+     * Health/Fitness: Greens, oranges, coral
+     * Finance: Navy, gold, forest green
+     * Creative: Vibrant but tasteful combinations
+   - NO purple/blue or purple/pink gradients unless explicitly requested
+   - Use 60-30-10 rule (60% dominant, 30% secondary, 10% accent)
 
 2. TYPOGRAPHY:
-   - Professional font combinations
-   - Clear hierarchy: 3rem+ for hero headlines
-   - Line-height: 1.6 for body text
-   - Letter-spacing for elegance
+   - Google Fonts (preconnect for speed):
+     * Heading: Montserrat, Poppins, or Inter (600-800 weight)
+     * Body: Open Sans, Roboto, or Inter (400-500 weight)
+     * Accent: Dancing Script or similar for special emphasis
+   - Hero h1: 3.5rem-4.5rem
+   - Section h2: 2.5rem-3rem
+   - Body: 1rem-1.125rem, line-height: 1.6
 
-3. HERO SECTION (Above the fold):
-   - Powerful, benefit-driven headline (not generic)
-   - Compelling subheadline explaining value
-   - Prominent CTA button: {target_action}
-   - Modern button design with hover effects
-   - Optional: subtle background pattern or gradient
+3. ANIMATIONS (CSS Keyframes):
+   - Floating elements: translateY up/down
+   - Pulse effects for badges
+   - Fade-in on scroll (use Intersection Observer pattern)
+   - Counter animations for numbers
+   - Hover effects: scale, shadow, color transitions
 
-4. FEATURES/BENEFITS SECTION:
-   - 4-6 key benefits with icons (use Unicode symbols, not emoji)
-   - Each benefit: icon, title, description
-   - Grid or card layout with hover effects
-   - Real, specific benefits (not generic)
+4. GLASSMORPHISM:
+   - Header: backdrop-filter: blur(10px), rgba background
+   - Cards: subtle blur with semi-transparent backgrounds
+   - Testimonial cards with glass effect
 
-5. SOCIAL PROOF SECTION:
-   - 3 testimonials with realistic names
-   - Star ratings (★★★★★)
-   - Professional quotes (not generic)
-   - Company logos or positions
+5. GRADIENTS (Strategic use):
+   - Hero background: Radial or linear, multi-color
+   - Buttons: Subtle gradient with hover state
+   - Section dividers
+   - Accent elements only
 
-6. STATS/NUMBERS SECTION:
-   - 3-4 impressive metrics
-   - Large numbers with descriptions
-   - Build credibility
+6. ICONS & VISUALS:
+   - Use Unicode symbols or emojis (decorative)
+   - Consistent icon style throughout
+   - Large, prominent icons in feature sections
 
-7. FINAL CTA SECTION:
-   - Strong call-to-action
-   - Urgency element
-   - Clear button: {target_action}
+7. SPACING & LAYOUT:
+   - Container: max-width 1280px
+   - Section padding: 80px-120px top/bottom
+   - Card padding: 2rem-3rem
+   - Generous margins between elements
 
-8. FOOTER (COMPLETE & PROFESSIONAL):
-   - Company information
-   - Realistic contact details (actual format):
-     * Email: professional format (contact@company.domain)
-     * Phone: proper international format (+X XXX XXX XXXX)
-     * Address: realistic full address with city, postal code
-   - Navigation links (About, Services, Contact)
-   - Legal links:
-     * Privacy Policy (Политика конфиденциальности)
-     * Terms of Service (Условия использования)
-     * Cookie Policy (Политика cookies)
-   - Social media icons (LinkedIn, Twitter, Facebook - use Unicode)
-   - Copyright notice with current year
-   - All footer text in {language}
+8. RESPONSIVE:
+   - Mobile: Single column, stacked
+   - Tablet: 2 columns for cards
+   - Desktop: 3-4 columns, side-by-side layouts
+   - Media queries at 640px, 768px, 1024px
 
-9. ANIMATIONS & INTERACTIONS:
-   - Smooth transitions: transition: all 0.3s ease
-   - Hover effects on buttons and cards
-   - Transform: scale(1.05) on hover
-   - Opacity transitions
-   - Cursor: pointer on interactive elements
+CONTENT REQUIREMENTS (CRITICAL - NOT PLACEHOLDER):
 
-10. RESPONSIVE DESIGN:
-   - Mobile-first approach
-   - Media queries for tablet and desktop
-   - Flexible grids
-   - Touch-friendly buttons (min 44px height)
+1. WRITE REAL, COMPELLING COPY:
+   - Headlines: Powerful, benefit-driven (e.g., "Master [Skill] in 30 Days")
+   - Descriptions: Specific, detailed (not "Lorem ipsum")
+   - Testimonials: Realistic quotes with specific results
+   - Features: Detailed descriptions (2-3 sentences each)
 
-11. LIGHTHOUSE OPTIMIZATION:
-   - Semantic HTML5 tags
-   - Alt text on images (if any)
-   - Proper heading hierarchy (h1, h2, h3)
-   - Meta tags for SEO
-   - Fast loading (inline CSS only)
+2. NUMBERS & STATS:
+   - Use realistic, impressive numbers (10,000+ users, 95% success rate)
+   - Make them specific (not round numbers like 1000, use 10,247)
 
-12. GOOGLE ADS COMPLIANCE:
-   - Honest, clear messaging
-   - No false claims
-   - Privacy statement
-   - Real contact information
-   - Professional appearance
+3. LANGUAGE ACCURACY:
+   - All content must be in {language}
+   - Use culturally appropriate examples
+   - Proper grammar and professional tone
 
-13. COLOR PSYCHOLOGY:
-   - For trust: Blues (navy, slate), greens
-   - For energy: Orange, coral, teal
-   - For luxury: Gold accents, deep purples, black
-   - For tech: Indigo, cyan, slate gray
-   - Always with proper contrast ratios
+4. SPECIFICITY:
+   - Instead of "Great results" → "Increase revenue by 45%"
+   - Instead of "Many users" → "12,347 active members"
+   - Instead of "Fast service" → "24-hour response time"
 
-14. MICRO-INTERACTIONS:
-   - Button hover: transform and color change
-   - Card lift effect: translateY(-4px) + shadow
-   - Smooth scrolling behavior
-   - Focus states for accessibility
+TECHNICAL IMPLEMENTATION:
 
-CONTENT GUIDELINES:
-- Write compelling, specific copy (not generic)
-- Use power words and emotional triggers
-- Include specific numbers and results
-- Create urgency without being pushy
-- Professional tone matching the theme
-- Everything in {language}
+1. HTML5 SEMANTIC:
+   ```html
+   <header>, <nav>, <section>, <article>, <footer>
+   <h1> only once, <h2> for sections, <h3> for subsections
+   ```
 
-TECHNICAL REQUIREMENTS:
-- Single HTML file with inline CSS
-- No external dependencies
-- No JavaScript (unless critical for functionality)
-- Valid HTML5
-- Mobile-responsive
-- Fast loading
+2. INLINE CSS (Critical):
+   - CSS variables for colors
+   - Organized by component
+   - All critical styles inline
 
-Generate ONLY the complete HTML code. No explanations, no markdown code blocks, just pure HTML starting with <!DOCTYPE html>.
-The result should look like a $20,000+ professional landing page."""
+3. STRUCTURED DATA:
+   ```html
+   <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Organization/Product/Service",
+     ...
+   }
+   </script>
+   ```
+
+4. META TAGS:
+   - Title, description, keywords
+   - Viewport for mobile
+   - Charset UTF-8
+
+5. ACCESSIBILITY:
+   - Alt text (if images)
+   - ARIA labels where needed
+   - Keyboard navigation friendly
+   - Color contrast WCAG AA
+
+6. PERFORMANCE:
+   - Inline critical CSS
+   - Minimal code
+   - No external dependencies
+   - Font preconnect
+
+GOOGLE ADS COMPLIANCE:
+- Honest messaging
+- Clear pricing
+- Privacy policy link
+- Contact information
+- Professional appearance
+- No misleading claims
+
+Generate a COMPLETE, CONTENT-RICH landing page. Every section must have real, detailed content. NOT placeholder text. This should look like a $20,000+ agency-created page with RICH content, professional design, and high conversion potential.
+
+OUTPUT: Pure HTML only, starting with <!DOCTYPE html>. No explanations, no markdown blocks.
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """
