@@ -174,15 +174,40 @@ The result should look like a $20,000+ professional landing page."""
         """
         Generate realistic contact information
         """
-        metadata_prompt = f"""Generate realistic contact information for a company with theme: {theme}.
-Provide in this exact format:
-Company: [name]
-Email: [email]
-Phone: [phone with country code]
-Address: [full address]
+        metadata_prompt = f"""Generate completely realistic and professional contact information for a company with theme: {theme}.
 
-Language: {language}
-Make it look professional and realistic."""
+CRITICAL: Make this look 100% real and professional - NOT placeholder data.
+
+Requirements:
+- Company name: Professional, memorable, relevant to {theme}
+- Email: Professional format like contact@companyname.com or info@companyname.com
+- Phone: Proper international format with country code (e.g., +1 415 555 0123, +44 20 7123 4567, +7 495 123 4567)
+- Address: COMPLETE realistic address including:
+  * Street number and name
+  * Suite/Office number (if applicable)
+  * City
+  * State/Region
+  * Postal/ZIP code
+  * Country
+
+Language context: {language}
+If Russian language: use Russian city and phone format
+If English: use US/UK format
+If other languages: use appropriate country format
+
+Provide in this EXACT format:
+Company: [professional company name]
+Email: [professional@domain.com]
+Phone: [+X XXX XXX XXXX format]
+Address: [Street], [City], [Postal Code], [Country]
+
+Example for Russian:
+Company: ЦифроПро Обучение
+Email: info@cifropro.ru
+Phone: +7 495 789 4567
+Address: ул. Тверская, д. 12, офис 301, Москва, 125009, Россия
+
+Make it look completely real and professional."""
         
         metadata_message = UserMessage(text=metadata_prompt)
         metadata_response = await chat.send_message(metadata_message)
