@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from models import LandingPageCreate, LandingPage, LandingPageMetadata
-from landing_generator_v3 import LandingPageGenerator
+from landing_generator_v4 import LandingPageGenerator
 from typing import List
 import uuid
 from datetime import datetime
