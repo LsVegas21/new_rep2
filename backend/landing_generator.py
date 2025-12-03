@@ -296,7 +296,7 @@ CRITICAL: Make this look 100% real and professional - NOT placeholder data.
 Requirements:
 - Company name: Professional, memorable, relevant to {theme}
 - Email: Professional format like contact@companyname.com or info@companyname.com
-- Phone: Proper international format with country code (e.g., +1 415 555 0123, +44 20 7123 4567, +7 495 123 4567)
+- Phone: Proper international format with country code (e.g., +1 415 555 1234, +44 20 7123 4567, +7 495 123 4567)
 - Address: COMPLETE realistic address including:
   * Street number and name
   * Suite/Office number (if applicable)
