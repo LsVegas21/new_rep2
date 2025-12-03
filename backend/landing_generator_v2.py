@@ -54,7 +54,7 @@ Design: Glassmorphism, animations (float/pulse/fadeIn), hover effects, responsiv
 
 Content: Specific headlines, detailed features, realistic numbers (10,247 not 10,000), testimonials with results. Everything in {language}.
 
-Output HTML only, no markdown.
+Output HTML only, no markdown."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """Generate realistic contact information"""
