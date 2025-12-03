@@ -36,44 +36,101 @@ class LandingPageGenerator:
         }
     
     def _create_html_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        prompt = f"""Create a professional landing page for: {theme}
-Language: {language} | Traffic: {traffic_source} | Action: {target_action}
+        prompt = f"""Create an Awwwards-quality landing page for: {theme}
+Language: {language} | Traffic: {traffic_source} | Main CTA: {target_action}
 
-STRUCTURE (ALL sections required):
-1. FIXED HEADER: Logo, nav menu, {target_action} button, glassmorphism effect
-2. HERO (full height): Kinematic gradient background, floating elements, powerful headline, stats section with 3-4 animated counters, dual CTAs, geo-social proof
-3. TRUST BADGES: 3 trust indicators with icons, detailed disclaimer, privacy/terms links
-4. PROBLEMS & SOLUTIONS: 3 pain points with specific solutions, comparison table
-5. TESTIMONIALS: 3+ with names/locations/ratings, live counters section
-6. FEATURES: 4-6 detailed cards with icons, titles, descriptions, bullet points (3-5 each)
-7. PRICING: Clear pricing, what's included, guarantee
-8. CTA FORM: Multi-step indicator, name/email/location/experience fields, GDPR checkbox, {target_action} button
-9. FOOTER: Brand info, navigation, REAL contact (email, phone with +country code, full address with postal code), legal links (Privacy/Terms/Cookies), social media, copyright 2025, business hours
+MUST HAVE ALL SECTIONS:
 
-DESIGN:
-- Colors: Choose based on {theme} (NO purple/blue or purple/pink gradients)
-- Fonts: Montserrat/Poppins headings (600-800), Open Sans/Inter body (400-500)
-- Animations: floating, pulse, fade-in on scroll, counter animations, hover effects (scale/shadow)
-- Glassmorphism: backdrop-filter blur(10-12px) on header and cards
-- Spacing: Sections 80-120px padding, cards 2-3rem, generous margins
-- Responsive: Mobile-first with media queries
+1. HEADER (position: fixed, backdrop-filter: blur(10px)):
+   - Animated logo
+   - Nav links with smooth scroll
+   - Live indicator badge
+   - Primary CTA button: {target_action}
 
-CONTENT (NOT PLACEHOLDER):
-- Headlines: Powerful, benefit-driven, specific
-- Copy: Detailed, compelling (2-3 sentences per feature)
-- Numbers: Specific (12,347 not 12,000), realistic
-- Testimonials: Real quotes with specific results
-- Everything in {language}
+2. HERO SECTION (min-height: 100vh):
+   - Kinematic background with radial gradients
+   - Floating decorative elements (position: absolute with animations)
+   - H1: Powerful headline (not generic - be specific to {theme})
+   - Subtitle: Clear value proposition
+   - STATS ROW with 3-4 animated counters:
+     Example: "12,347 Active Users | 95% Success Rate | 25+ Cities"
+   - Two CTAs: Primary ({target_action}) + Secondary link
+   - Social proof: "María from [City] just [achievement]"
+   - Scroll indicator
 
-TECHNICAL:
-- Single HTML file, inline CSS
-- Semantic HTML5, proper heading hierarchy
-- Meta tags, structured data JSON-LD
-- Google Fonts preconnect
-- Accessibility features
-- Fast loading optimized
+3. COMPLIANCE/TRUST (3 cards):
+   - Icon + claim for each (e.g., "GDPR Compliant", "Secure Data", "Money-back")
+   - Detailed disclaimer paragraph
+   - Links to Privacy Policy & Terms
 
-Output ONLY the HTML code, starting with <!DOCTYPE html>. No explanations, no markdown."""
+4. PROBLEM/SOLUTION (3 problems):
+   - Each problem: Title + description + solution with 3 benefits
+   - Comparison table: Traditional way vs Our solution
+
+5. SOCIAL PROOF:
+   - 3+ Testimonial cards:
+     * Avatar/initial
+     * Name, Location
+     * Quote with SPECIFIC results (not generic)
+     * 5-star rating
+   - Live counters section (animated numbers)
+
+6. FEATURES/MODULES (4-6 cards):
+   - Each card: Large icon, Title, 2-3 sentence description, 3-5 bullet benefits
+   - Grid layout with hover effects
+   - Add simulated interactive map or tabs
+
+7. PRICING:
+   - Price tiers or single price
+   - What's included list
+   - Guarantee statement
+
+8. LEAD FORM:
+   - Multi-step progress bar (Step 1 of 3 style)
+   - Fields: Name, Email, City/Country dropdown, Experience level select
+   - GDPR consent checkbox
+   - Large submit button: {target_action}
+   - Trust badges near form
+
+9. FOOTER (complete):
+   - Logo + company tagline
+   - Quick links section
+   - Contact section with:
+     * Email: professional@domain.com format
+     * Phone: +country code format (e.g., +1 415 555 1234)
+     * Full address: Street, City, Postal Code, Country
+     * Business hours: Mon-Fri, 9am-5pm
+   - Legal links: Privacy Policy | Terms | Cookies
+   - Social media icons (use Unicode: 👤 💼 🐦)
+   - Copyright 2025
+   - Additional CTA section
+
+CSS REQUIREMENTS:
+- CSS variables for colors
+- Animations: @keyframes float, pulse, fadeIn
+- Glassmorphism: backdrop-filter: blur(12px), rgba backgrounds
+- Hover effects: transform: translateY(-4px) scale(1.02), box-shadow transitions
+- Responsive: @media (max-width: 768px)
+- Smooth scroll: html scroll-behavior: smooth
+
+CONTENT QUALITY:
+- Headlines: Not generic! Example for education: "Master Python in 30 Days" not "Learn Programming"
+- Features: Specific details, not "Great features" but "24/7 Expert Support with <2hr Response"
+- Numbers: Use specific like 10,247 not 10,000
+- Testimonials: Specific results "Increased revenue by 45% in 3 months"
+- Write everything in {language}
+
+COLOR SCHEME (choose based on theme):
+- Education/Tech: Deep blues (#1e40af), teal (#0d9488), slate (#334155)
+- Health/Fitness: Greens (#059669), coral (#f87171), orange (#f59e0b)
+- Business/Finance: Navy (#1e3a8a), gold (#f59e0b), forest green (#065f46)
+- Creative: Rich purples (NOT with pink/blue), magenta, deep orange
+
+FONTS:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=600;700;800&family=Open+Sans:wght=400;500&display=swap" rel="stylesheet">
+
+Output complete HTML starting with <!DOCTYPE html>. No explanations or markdown blocks."""
         return prompt
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
