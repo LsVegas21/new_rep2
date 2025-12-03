@@ -61,7 +61,7 @@ VISUALS (critical):
 - Animations: float, pulse, fadeIn, slideUp
 - Colors: Bold, vibrant (NO boring)
 
-Content: Specific, detailed (2-3 sentences), realistic numbers. ALL in {language}. HTML only.
+Content: Specific, detailed (2-3 sentences), realistic numbers. ALL in {language}. HTML only."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """Generate realistic contact information"""
