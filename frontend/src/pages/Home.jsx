@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
@@ -12,6 +13,9 @@ import {
 import { Loader2, Sparkles, Download, Eye } from 'lucide-react';
 import { mockLanguages, mockTrafficSources, mockTargetActions } from '../mock';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
 const Home = () => {
   const [formData, setFormData] = useState({
     theme: '',
@@ -21,6 +25,7 @@ const Home = () => {
   });
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedLanding, setGeneratedLanding] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleGenerate = async () => {
     if (!formData.theme || !formData.language || !formData.trafficSource || !formData.targetAction) {
@@ -29,19 +34,23 @@ const Home = () => {
     }
 
     setIsGenerating(true);
+    setError(null);
     
-    // Simulate generation with mock data
-    setTimeout(() => {
-      const mockResult = {
-        id: Date.now().toString(),
-        ...formData,
-        createdAt: new Date().toISOString(),
-        html: generateMockHTML(formData),
-        lighthouse: Math.floor(Math.random() * 5) + 96
-      };
-      setGeneratedLanding(mockResult);
+    try {
+      const response = await axios.post(`${API}/generate-landing`, {
+        theme: formData.theme,
+        language: formData.language,
+        traffic_source: formData.trafficSource,
+        target_action: formData.targetAction
+      });
+      
+      setGeneratedLanding(response.data);
+    } catch (err) {
+      console.error('Error generating landing:', err);
+      setError(err.response?.data?.detail || 'Ошибка при генерации landing page');
+    } finally {
       setIsGenerating(false);
-    }, 3000);
+    }
   };
 
   const generateMockHTML = (data) => {
