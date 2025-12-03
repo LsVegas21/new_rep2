@@ -44,42 +44,131 @@ class LandingPageGenerator:
         }
     
     def _create_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        return f"""Generate a complete, production-ready HTML landing page with the following specifications:
+        return f"""You are a world-class web designer creating an Awwwards-level landing page. Generate a complete, production-ready HTML landing page that looks like it was created by a professional design agency.
 
 THEME: {theme}
 LANGUAGE: {language}
 TRAFFIC SOURCE: {traffic_source}
 TARGET ACTION: {target_action}
 
-REQUIREMENTS:
-1. Complete HTML5 document with inline CSS (no external files)
-2. Lighthouse score optimization:
-   - Semantic HTML
-   - Fast loading (minimal code)
-   - Mobile responsive
-   - Accessibility features
-3. Google Ads compliance:
-   - Clear, honest messaging
-   - No misleading claims
-   - Privacy-friendly
-   - Contact information included
-4. Modern design:
-   - Clean, professional layout
-   - Hero section with compelling headline
-   - Benefits/features section (3-5 points)
-   - Social proof section (testimonials)
-   - Strong CTA button for: {target_action}
-   - Footer with contact info
-5. Conversion optimization:
-   - Attention-grabbing headline
-   - Clear value proposition
-   - Trust indicators
-   - Urgency/scarcity elements
-6. Color scheme: Use modern, professional colors (avoid purple/blue and purple/pink gradients)
-7. Typography: Use clean, web-safe fonts
-8. All text must be in {language}
+CRITICAL DESIGN REQUIREMENTS (AWWWARDS LEVEL):
 
-Generate ONLY the complete HTML code, nothing else. No explanations, no markdown code blocks, just pure HTML starting with <!DOCTYPE html>."""
+1. VISUAL DESIGN (Premium Quality):
+   - Modern, sophisticated color palette (NO purple/blue or purple/pink gradients)
+   - Rich, professional colors with proper contrast
+   - Subtle gradients and depth effects
+   - Glass-morphism effects with backdrop-filter: blur(12px)
+   - Smooth shadows: box-shadow with multiple layers
+   - White space as a luxury element (generous padding/margins)
+
+2. TYPOGRAPHY:
+   - Professional font combinations
+   - Clear hierarchy: 3rem+ for hero headlines
+   - Line-height: 1.6 for body text
+   - Letter-spacing for elegance
+
+3. HERO SECTION (Above the fold):
+   - Powerful, benefit-driven headline (not generic)
+   - Compelling subheadline explaining value
+   - Prominent CTA button: {target_action}
+   - Modern button design with hover effects
+   - Optional: subtle background pattern or gradient
+
+4. FEATURES/BENEFITS SECTION:
+   - 4-6 key benefits with icons (use Unicode symbols, not emoji)
+   - Each benefit: icon, title, description
+   - Grid or card layout with hover effects
+   - Real, specific benefits (not generic)
+
+5. SOCIAL PROOF SECTION:
+   - 3 testimonials with realistic names
+   - Star ratings (★★★★★)
+   - Professional quotes (not generic)
+   - Company logos or positions
+
+6. STATS/NUMBERS SECTION:
+   - 3-4 impressive metrics
+   - Large numbers with descriptions
+   - Build credibility
+
+7. FINAL CTA SECTION:
+   - Strong call-to-action
+   - Urgency element
+   - Clear button: {target_action}
+
+8. FOOTER (COMPLETE & PROFESSIONAL):
+   - Company information
+   - Realistic contact details (actual format):
+     * Email: professional format (contact@company.domain)
+     * Phone: proper international format (+X XXX XXX XXXX)
+     * Address: realistic full address with city, postal code
+   - Navigation links (About, Services, Contact)
+   - Legal links:
+     * Privacy Policy (Политика конфиденциальности)
+     * Terms of Service (Условия использования)
+     * Cookie Policy (Политика cookies)
+   - Social media icons (LinkedIn, Twitter, Facebook - use Unicode)
+   - Copyright notice with current year
+   - All footer text in {language}
+
+9. ANIMATIONS & INTERACTIONS:
+   - Smooth transitions: transition: all 0.3s ease
+   - Hover effects on buttons and cards
+   - Transform: scale(1.05) on hover
+   - Opacity transitions
+   - Cursor: pointer on interactive elements
+
+10. RESPONSIVE DESIGN:
+   - Mobile-first approach
+   - Media queries for tablet and desktop
+   - Flexible grids
+   - Touch-friendly buttons (min 44px height)
+
+11. LIGHTHOUSE OPTIMIZATION:
+   - Semantic HTML5 tags
+   - Alt text on images (if any)
+   - Proper heading hierarchy (h1, h2, h3)
+   - Meta tags for SEO
+   - Fast loading (inline CSS only)
+
+12. GOOGLE ADS COMPLIANCE:
+   - Honest, clear messaging
+   - No false claims
+   - Privacy statement
+   - Real contact information
+   - Professional appearance
+
+13. COLOR PSYCHOLOGY:
+   - For trust: Blues (navy, slate), greens
+   - For energy: Orange, coral, teal
+   - For luxury: Gold accents, deep purples, black
+   - For tech: Indigo, cyan, slate gray
+   - Always with proper contrast ratios
+
+14. MICRO-INTERACTIONS:
+   - Button hover: transform and color change
+   - Card lift effect: translateY(-4px) + shadow
+   - Smooth scrolling behavior
+   - Focus states for accessibility
+
+CONTENT GUIDELINES:
+- Write compelling, specific copy (not generic)
+- Use power words and emotional triggers
+- Include specific numbers and results
+- Create urgency without being pushy
+- Professional tone matching the theme
+- Everything in {language}
+
+TECHNICAL REQUIREMENTS:
+- Single HTML file with inline CSS
+- No external dependencies
+- No JavaScript (unless critical for functionality)
+- Valid HTML5
+- Mobile-responsive
+- Fast loading
+
+Generate ONLY the complete HTML code. No explanations, no markdown code blocks, just pure HTML starting with <!DOCTYPE html>.
+The result should look like a $20,000+ professional landing page."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """
