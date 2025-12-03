@@ -246,15 +246,7 @@ TECHNICAL IMPLEMENTATION:
    - All critical styles inline
 
 3. STRUCTURED DATA:
-   ```html
-   <script type="application/ld+json">
-   {
-     "@context": "https://schema.org",
-     "@type": "Organization/Product/Service",
-     ...
-   }
-   </script>
-   ```
+   Include JSON-LD structured data in a script tag for SEO
 
 4. META TAGS:
    - Title, description, keywords
