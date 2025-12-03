@@ -79,4 +79,61 @@ INTERACTIVE:
 
 CONTENT: Specific, detailed, realistic. NO Lorem Ipsum. ALL in {language}.
 
-Output complete self-contained HTML starting with <!DOCTYPE html>. No explanations.
+Output complete self-contained HTML starting with <!DOCTYPE html>. No explanations."""
+    
+    async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
+        """Generate realistic contact information"""
+        prompt = f"""Generate professional contact info for: {theme} in {language}
+
+Format:
+Company: [name]
+Email: [contact@domain.ext]
+Phone: [+country xxx xxx xxxx]
+Address: [street, city, postal, country]
+
+Make it 100% realistic, professional."""
+        
+        msg = UserMessage(text=prompt)
+        response = await chat.send_message(msg)
+        return self._parse_metadata(response)
+    
+    def _parse_metadata(self, response: str) -> dict:
+        """Parse metadata from AI response"""
+        lines = response.strip().split('\n')
+        metadata = {"company_name": "", "email": "", "phone": "", "address": ""}
+        
+        for line in lines:
+            if ':' in line:
+                key, value = line.split(':', 1)
+                key = key.strip().lower()
+                value = value.strip()
+                
+                if 'company' in key:
+                    metadata['company_name'] = value
+                elif 'email' in key:
+                    metadata['email'] = value
+                elif 'phone' in key:
+                    metadata['phone'] = value
+                elif 'address' in key:
+                    metadata['address'] = value
+        
+        return metadata
+    
+    def _clean_html_response(self, html: str) -> str:
+        """Clean HTML response from AI"""
+        html = html.strip()
+        
+        if html.startswith('```html'):
+            html = html[7:]
+        elif html.startswith('```'):
+            html = html[3:]
+        
+        if html.endswith('```'):
+            html = html[:-3]
+        
+        html = html.strip()
+        
+        if not html.upper().startswith('<!DOCTYPE'):
+            html = '<!DOCTYPE html>\n' + html
+        
+        return html
