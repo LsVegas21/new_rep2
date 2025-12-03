@@ -36,61 +36,98 @@ class LandingPageGenerator:
         }
     
     def _create_html_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        return f"""Create VISUALLY STUNNING landing page: {theme}
+        return f"""Create CONTENT-RICH, VISUALLY STUNNING landing page: {theme}
 ALL CONTENT IN: {language} | CTA: {target_action}
 
-SECTIONS (with images):
-1. HEADER: Fixed glassmorphism, logo, nav, {target_action} button
-2. HERO: Full height, RICH GRADIENT background, hero image (use https://images.unsplash.com/photo-relevant), headline, stats, dual CTAs
-3. TRUST: 3 badges with icons, images, disclaimer
-4. PROBLEMS: 3 cards with images from unsplash
-5. TESTIMONIALS: 3+ with avatar images (https://i.pravatar.cc/150?img=X), names, ratings
-6. FEATURES: 4-6 cards with unsplash images, icons, bullets
-7. PRICING: Cards with imagery
-8. FORM: With background image, fields, {target_action} button
-9. FOOTER: Complete with imagery
+MUST HAVE SECTIONS (RICH CONTENT):
+1. HEADER: Fixed, glassmorphism, logo, nav (4+ links), {target_action} button, live badge
 
-VISUAL REQUIREMENTS (CRITICAL):
-IMAGES: Use Unsplash API for ALL sections:
-- Hero: https://images.unsplash.com/photo-relevant-to-theme?w=1920&h=1080&fit=crop
-- Features: https://images.unsplash.com/photo-relevant?w=800&h=600&fit=crop
-- Avatars: https://i.pravatar.cc/150?img=1,2,3
-- Use realistic relevant search terms
+2. HERO: Full viewport, gradient + hero image overlay, powerful H1 (specific to theme), 2-3 sentence value prop, STATS ROW (4 animated counters with descriptions), dual CTAs, social proof quote, scroll indicator
 
-GRADIENTS: Rich, vibrant gradients everywhere:
-- Hero: linear-gradient(135deg, color1 0%, color2 50%, color3 100%)
-- Cards: radial-gradient or linear with 3+ colors
-- Buttons: gradient backgrounds with shift on hover
-- Overlays: gradient overlays on images
+3. COMPLIANCE/TRUST: 3 cards with icons + images, detailed 2-3 sentence descriptions, disclaimer paragraph, privacy/terms links
 
-SHADOWS: Multiple layered shadows:
-- Cards: box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.06)
-- Hover: box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.08)
-- Text shadows on hero: text-shadow: 2px 2px 8px rgba(0,0,0,0.3)
+4. PROBLEMS & SOLUTIONS: 
+- 3-4 problem cards with unsplash images
+- Each: Problem title, 2 sentences description, Solution section with 4-5 specific bullet points
+- Comparison table with 5+ comparison points
 
-HOVER EFFECTS (on ALL interactive elements):
+5. SOCIAL PROOF:
+- 6 testimonial cards with avatars (https://i.pravatar.cc/150?img=1,2,3,4,5,6)
+- Each: Name, location, company, specific quote (2 sentences), star rating
+- Live counters section: 4-5 metrics with animated numbers
+- Trust logos/badges section
+
+6. FEATURES (DETAILED):
+- 6-8 feature cards with unsplash images
+- Each card: Large icon, feature title, 3-4 sentence description, 5-6 benefit bullets
+- Interactive tabs or accordion for more details
+
+7. HOW IT WORKS:
+- Step-by-step process (4-5 steps)
+- Each step: Number, title, description, image
+- Timeline visual or process flow
+
+8. STATISTICS/ACHIEVEMENTS:
+- 6-8 impressive stats with icons
+- Animated numbers on scroll
+- Visual charts or progress bars
+
+9. FAQ SECTION:
+- 6-8 common questions with detailed answers
+- Accordion style with smooth open/close
+- Rich text answers (2-3 sentences each)
+
+10. PRICING:
+- 2-3 pricing tiers with images
+- Each: Plan name, price, 8-10 features list, {target_action} button
+- Money-back guarantee badge
+
+11. FINAL CTA:
+- Background image with overlay
+- Compelling headline, subheadline
+- Large form or CTA button
+- Trust indicators
+
+12. FOOTER (COMPLETE):
+- 4 column layout: Brand, Navigation, Resources, Contact
+- Brand: Logo, 2-3 sentence description, social icons
+- Navigation: 8-10 links
+- Resources: Blog, guides, help links
+- Contact: Email, phone (+country format), full address, business hours
+- Bottom bar: Legal links (Privacy, Terms, Cookies), copyright 2025, certifications
+
+VISUAL EXCELLENCE:
+IMAGES: Unsplash everywhere:
+- Hero: https://images.unsplash.com/photo-1560472355-536de3962603?w=1920
+- Cards: https://images.unsplash.com/photo-relevant?w=800&h=600
+- Avatars: https://i.pravatar.cc/150?img=X
+- Use specific relevant search terms
+
+GRADIENTS: Rich multi-color:
+- Hero: linear-gradient(135deg, 3+ colors)
+- Section backgrounds with gradients
+- Button gradients with hover shift
+- Animated gradient backgrounds
+
+SHADOWS: Deep, layered:
+- Cards: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.06)
+- Hover: 0 20px 60px rgba(0,0,0,0.15)
+- Text shadows on headers
+
+HOVER: Everything interactive:
 - transform: translateY(-8px) scale(1.03)
-- box-shadow transitions
-- gradient shifts
-- opacity changes
-- filter: brightness(1.1)
+- Gradient shifts, brightness(1.1)
+- Shadow depth increases
+- Color transitions
 
-ANIMATIONS (smooth):
-- @keyframes float, pulse, fadeIn, slideUp, shimmer
-- Entrance animations on scroll
-- Counter animations
-- Background gradients animate
-- Smooth transitions: transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+ANIMATIONS:
+- @keyframes: float, pulse, fadeIn, slideUp, shimmer, gradientShift
+- Scroll animations, counter animations
+- Smooth: transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
 
-COLORS: Vibrant, modern (NO boring grays):
-- Use bold, saturated colors
-- Complementary color schemes
-- Accent colors that pop
-- NO purple/blue or purple/pink unless requested
+COLORS: Bold, vibrant, complementary scheme
 
-CSS: Modern, rich styling, glassmorphism everywhere, backdrop-filter, colorful, NOT boring!
-
-ALL TEXT in {language}. Output HTML only."""
+ALL TEXT strictly in {language}. Output complete HTML."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """Generate realistic contact information"""
