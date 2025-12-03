@@ -36,25 +36,61 @@ class LandingPageGenerator:
         }
     
     def _create_html_prompt(self, theme: str, language: str, traffic_source: str, target_action: str) -> str:
-        return f"""Create professional landing page: {theme}
-Language: {language} | CTA: {target_action}
+        return f"""Create VISUALLY STUNNING landing page: {theme}
+ALL CONTENT IN: {language} | CTA: {target_action}
 
-Required sections:
-1. HEADER: Fixed, glassmorphism, logo, nav, {target_action} button
-2. HERO: Full height, gradient background, powerful headline, 3-4 stat counters, dual CTAs
-3. TRUST: 3 trust badges, disclaimer, privacy/terms links
-4. PROBLEMS: 3 pain points with solutions
-5. TESTIMONIALS: 3+ with names/locations/ratings/specific results
-6. FEATURES: 4-6 cards with icons, descriptions, bullet points
-7. PRICING: Clear pricing, inclusions, guarantee
-8. FORM: Name, email, location, experience fields, GDPR checkbox, {target_action} button
-9. FOOTER: Company info, navigation, contact (real format email/phone +country/full address/hours), legal links, social, copyright 2025
+SECTIONS (with images):
+1. HEADER: Fixed glassmorphism, logo, nav, {target_action} button
+2. HERO: Full height, RICH GRADIENT background, hero image (use https://images.unsplash.com/photo-relevant), headline, stats, dual CTAs
+3. TRUST: 3 badges with icons, images, disclaimer
+4. PROBLEMS: 3 cards with images from unsplash
+5. TESTIMONIALS: 3+ with avatar images (https://i.pravatar.cc/150?img=X), names, ratings
+6. FEATURES: 4-6 cards with unsplash images, icons, bullets
+7. PRICING: Cards with imagery
+8. FORM: With background image, fields, {target_action} button
+9. FOOTER: Complete with imagery
 
-Design: Glassmorphism, animations (float/pulse/fadeIn), hover effects, responsive, modern colors (NO purple/blue gradients), Google Fonts (Montserrat/Open Sans)
+VISUAL REQUIREMENTS (CRITICAL):
+IMAGES: Use Unsplash API for ALL sections:
+- Hero: https://images.unsplash.com/photo-relevant-to-theme?w=1920&h=1080&fit=crop
+- Features: https://images.unsplash.com/photo-relevant?w=800&h=600&fit=crop
+- Avatars: https://i.pravatar.cc/150?img=1,2,3
+- Use realistic relevant search terms
 
-Content: Specific headlines, detailed features, realistic numbers (10,247 not 10,000), testimonials with results. Everything in {language}.
+GRADIENTS: Rich, vibrant gradients everywhere:
+- Hero: linear-gradient(135deg, color1 0%, color2 50%, color3 100%)
+- Cards: radial-gradient or linear with 3+ colors
+- Buttons: gradient backgrounds with shift on hover
+- Overlays: gradient overlays on images
 
-Output HTML only, no markdown."""
+SHADOWS: Multiple layered shadows:
+- Cards: box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.06)
+- Hover: box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.08)
+- Text shadows on hero: text-shadow: 2px 2px 8px rgba(0,0,0,0.3)
+
+HOVER EFFECTS (on ALL interactive elements):
+- transform: translateY(-8px) scale(1.03)
+- box-shadow transitions
+- gradient shifts
+- opacity changes
+- filter: brightness(1.1)
+
+ANIMATIONS (smooth):
+- @keyframes float, pulse, fadeIn, slideUp, shimmer
+- Entrance animations on scroll
+- Counter animations
+- Background gradients animate
+- Smooth transitions: transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+
+COLORS: Vibrant, modern (NO boring grays):
+- Use bold, saturated colors
+- Complementary color schemes
+- Accent colors that pop
+- NO purple/blue or purple/pink unless requested
+
+CSS: Modern, rich styling, glassmorphism everywhere, backdrop-filter, colorful, NOT boring!
+
+ALL TEXT in {language}. Output HTML only."""
     
     async def _generate_metadata(self, theme: str, language: str, chat: LlmChat) -> dict:
         """Generate realistic contact information"""
