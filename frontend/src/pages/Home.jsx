@@ -53,36 +53,6 @@ const Home = () => {
     }
   };
 
-  const generateMockHTML = (data) => {
-    return `<!DOCTYPE html>
-<html lang="${data.language === 'Русский' ? 'ru' : 'en'}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${data.theme}</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 2rem; }
-        h1 { font-size: 3rem; margin-bottom: 1rem; }
-        p { font-size: 1.5rem; margin-bottom: 2rem; }
-        button { background: white; color: #667eea; padding: 1rem 3rem; border: none; 
-                 border-radius: 50px; font-size: 1.2rem; cursor: pointer; font-weight: 600; }
-    </style>
-</head>
-<body>
-    <div class="hero">
-        <div>
-            <h1>${data.theme}</h1>
-            <p>Созданный с AI технологией</p>
-            <button>${data.targetAction}</button>
-        </div>
-    </div>
-</body>
-</html>`;
-  };
-
   const handleDownload = (format) => {
     if (!generatedLanding) return;
     
